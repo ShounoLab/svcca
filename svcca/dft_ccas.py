@@ -46,7 +46,7 @@ from __future__ import division
 from __future__ import print_function
 import numpy as np
 import pandas as pd
-import cca_core as cca_core
+# import cca_core as cca_core
 
 
 def fft_resize(images, resize=False, new_size=None):
@@ -153,7 +153,7 @@ def fourier_ccas(conv_acts1, conv_acts2, return_coefs=False,
       	results_dict["neuron_coeffs2"] = np.fft.ifft2(
           results_dict["neuron_coeffs2"])
       else:
-      	del results_dict["neuron_coeffs1"]
+        del results_dict["neuron_coeffs1"]
         del results_dict["neuron_coeffs2"]
 
       if compute_dirns:
