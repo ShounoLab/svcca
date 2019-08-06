@@ -46,7 +46,7 @@ from __future__ import division
 from __future__ import print_function
 import numpy as np
 import pandas as pd
-# import cca_core as cca_core
+from . import cca_core
 
 
 def fft_resize(images, resize=False, new_size=None):
@@ -140,8 +140,8 @@ def fourier_ccas(conv_acts1, conv_acts2, return_coefs=False,
 
   # loop over spatial dimensions and get cca coefficients
   all_results = pd.DataFrame()
-  for i in xrange(height):
-    for j in xrange(width):
+  for i in range(height):
+    for j in range(width):
       results_dict = cca_core.get_cca_similarity(
           fft_acts1[:, i, j, :].T, fft_acts2[:, i, j, :].T, compute_dirns,
                                                             verbose=verbose)
