@@ -91,8 +91,8 @@ def fft_resize(images, resize=False, new_size=None):
   return im_fft_downsampled
 
 
-def fourier_ccas(conv_acts1, conv_acts2, return_coefs=False,
-                 compute_dirns=False, verbose=False):
+def fourier_ccas(conv_acts1, conv_acts2, return_coefs=True,
+                 compute_dirns=True, verbose=False):
   """Computes cca similarity between two conv layers with DFT.
 
   This function takes in two sets of convolutional activations, conv_acts1,
@@ -143,8 +143,8 @@ def fourier_ccas(conv_acts1, conv_acts2, return_coefs=False,
   for i in range(height):
     for j in range(width):
       results_dict = cca_core.get_cca_similarity(
-          fft_acts1[:, i, j, :].T, fft_acts2[:, i, j, :].T, compute_dirns,
-                                                            verbose=verbose)
+          fft_acts1[:, i, j, :].T, fft_acts2[:, i, j, :].T, 
+          compute_dirns=compute_dirns, verbose=verbose)
 
       # apply inverse FFT to get coefficients and directions if specified
       if return_coefs:
