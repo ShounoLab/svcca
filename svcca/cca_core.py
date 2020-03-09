@@ -182,11 +182,7 @@ def sum_threshold(array, threshold):
   assert (threshold >= 0) and (threshold <= 1), "print incorrect threshold"
 
   for i in range(len(array)):
-<<<<<<< HEAD:svcca/cca_core.py
     if np.sum(array[:i]) / np.sum(array) >= threshold:
-=======
-    if np.sum(array[:i])/np.sum(array) >= threshold:
->>>>>>> origin/master:cca_core.py
       return i
 
 
